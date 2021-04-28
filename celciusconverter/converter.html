@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Converter suhu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,intinial-scale=1.0">
+        <style>
+            * {
+                padding:0;
+                margin:0;
+                box-sizing:border-box;
+                font-family:helvetica,sans-serif,arial;
+            }
+
+            body {
+                background:whitesmoke;
+            }
+
+            .container header {
+                width:100%;
+                padding:30px;
+                text-align:center;
+                background-color:#c7ecee;
+            }
+
+            .container .converter {
+                width:30%;
+                background:lightblue;
+                margin:30px auto;
+                padding:20px;
+            }
+
+            .container .inputing {
+                width:100%;
+            }
+
+            .container .inputing input {
+                width:100%;
+                padding:10px;
+                border:none;
+                background:white;
+            }
+
+            .container .converter .converter-content {
+                margin:15px 0 0;
+            }
+
+            .container .converter .converter-content .celcius {
+                width:100%;
+                padding:10px;
+                color:white;
+            }
+
+            .container .converter-content .celcius:nth-child(1) {
+                background:orangered;
+            }
+            .container .converter-content .celcius:nth-child(2) {
+                background-color:coral;
+                margin:12px 0;
+            }
+            .container .converter-content .celcius:nth-child(3) {
+                background-color:salmon;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h3>Converter Suhu</h3>
+                <h5>made by wendi</h5>
+            </header>
+            <div class="converter">
+                <div class="inputing">
+                    <input type="text" placeholder="input number">
+                </div>
+                <div class="converter-content">
+                    <div class="celcius">
+                        <h4>The celcius :</h4>
+                        <h5>celcius :</h5>
+                    </div>
+                    <div class="celcius">
+                        <h4>The Fahrenheit :</h4>
+                        <h5>fahrenheit :</h5>
+                    </div>
+                    <div class="celcius">
+                        <h4>The Kelvin :</h4>
+                        <h5>kelvin :</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function converter() {
+               const input = document.querySelector('input');
+               const all = document.querySelectorAll('.converter-content h5');
+               for(let number = 0; number < all.length; number++) {
+                   all[0].innerHTML = input.value;
+                   all[1].innerHTML = (input.value * 1.8) + 32;
+                   all[2].innerHTML = input.value + 273.15;
+               };
+            };
+
+            const input = document.querySelector('input');
+
+            input.addEventListener('input' , converter);
+        </script>
+    </body>
+</html>
